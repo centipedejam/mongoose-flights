@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+    <div class="container">
+        <h1 class="text-center mt-5">All Flight Departures</h1>
+        <% flights.forEach(function(flight) { %>
+            <div class="card mx-auto mt-5 d-block" style="width: 50vmin;">
+                <div class="card-header text-center fw-bold">
+                    <%= flight.airline %> Airlines
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Airport: <%= flight.airport %>
+                    </li>
+                    <li class="list-group-item">
+                        Flight Number: <%= flight.flightNo %>
+                    </li>
+                    <li class="list-group-item">
+                        Departure Time: <%= flight.departs %>
+                    </li>
+                </ul>
+            </div>
+            <%})%>
+    </div>
+    <%- include('../partials/footer') %>

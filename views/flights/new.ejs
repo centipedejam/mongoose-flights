@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+    <div class="container">
+        <h1 class="text-center mt-5 mb-3">Add a Flight</h1>
+
+        <form class="mx-auto" method="POST" action="/flights" style="width: 80vmin;">
+            <div class="mb-3">
+                <label class="form-label" for="airline">Airline</label>
+                <input class="form-control" type="text" name="airline" id="airline">
+            </div>
+            <div class="mb-3">
+                <select name="airport" class="form-select" aria-label="Default select example">
+                    <option selected>Select an airport</option>
+                    <option value="AUS">AUS</option>
+                    <option value="DFW">DFW</option>
+                    <option value="DEN">DEN</option>
+                    <option value="LAX">LAX</option>
+                    <option value="SAN">SAN</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="departs">Departure Time</label>
+                <input class="form-control" type="datetime-local" name="departs" id="departs"
+                    value="<%= departsDate %>">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="flightNo">Flight Number</label>
+                <input class="form-control" type="number" name="flightNo" id="flightNo">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <%- include('../partials/footer') %>

@@ -1,3 +1,25 @@
 a {
   color: #00B7FF;
 }
+
+.card {
+  background-color: rgb(222, 229, 237);
+}
+
+nav>.container-fluid {
+  background-color: rgb(46, 111, 134);
+  padding: 1vmin;
+}
+
+.navbar-expand-lg {
+  padding: 0;
+}
+
+.btn-primary {
+  background-color: rgb(212, 140, 140);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: rgb(46, 111, 134);
+}

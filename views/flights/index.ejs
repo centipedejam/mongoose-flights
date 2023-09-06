@@ -8,13 +8,23 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        Airport: <%= flight.airport %>
+                        Airport: <em>
+                            <%= flight.airport %>
+                        </em>
                     </li>
                     <li class="list-group-item">
-                        Flight Number: <%= flight.flightNo %>
+                        Flight Number: <em>
+                            <%= flight.flightNo %>
+                        </em>
                     </li>
                     <li class="list-group-item">
-                        Departure Time: <%= flight.departs %>
+                        Departure Info: <em>
+                            <%= flight.departs.toLocaleString() %>
+                        </em>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="btn btn-primary d-flex align-items-center justify-content-center"
+                            href="/flights/<%= flight._id %>">View Details</a>
                     </li>
                 </ul>
             </div>

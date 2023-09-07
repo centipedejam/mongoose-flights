@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-    <div class="container">
+    <div class="container mb-5">
         <h2 class="text-center pt-5">Departure Info</h2>
         <div class="d-flex justify-content-center align-items-center mt-5">
             <div class="card" style="width: 60vmin;">
@@ -43,26 +43,54 @@
                         <h6 class="text-center my-5">No Destinations Yet</h6>
                         <% }%>
                             <hr>
-                            <h2 class="text-center mt-5">Add New Destination</h2>
+                            <h2 class="text-center">Tickets</h2>
 
-                            <form action="/flights/<%= flight._id %>/destinations" method="POST">
-                                <div class="mb-3">
-                                    <label for="airport" class="form-label">Arrival Airport</label>
-                                    <select name="airport" class="form-select" id="airport">
-                                        <option selected>Select an airport</option>
-                                        <option value="AUS">AUS</option>
-                                        <option value="DFW">DFW</option>
-                                        <option value="DEN">DEN</option>
-                                        <option value="LAX">LAX</option>
-                                        <option value="SAN">SAN</option>
-                                    </select>
+                            <% tickets.forEach(function(t) {%>
+                                <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
+                                    <div class="card" style="width: 60vmin;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Seat Number: <%= t.seat %>
+                                            </h5>
+                                            <hr>
+                                            <h6 class="mb-2">
+                                                Price: $<%= t.price %>
+                                        </div>
+                                        <form action="/tickets/<%=t._id%>?_method=DELETE" method="POST">
+                                            <button class="btn btn-danger">Delete Ticket</button>
+                                        </form>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="arrival">Arrival Time</label>
-                                    <input class="form-control" type="datetime-local" name="arrival" id="arrival">
-                                    <button class="btn btn-success mt-3 mb-5">Add</button>
-                                </div>
-                            </form>
+
+
+
+
+                                <% })%>
+                                    <hr>
+                                    <h2 class="text-center mt-5">Add New Destination</h2>
+
+                                    <form action="/flights/<%= flight._id %>/destinations" method="POST">
+                                        <div class="mb-3">
+                                            <label for="airport" class="form-label">Arrival Airport</label>
+                                            <select name="airport" class="form-select" id="airport">
+                                                <option selected>Select an airport</option>
+                                                <option value="AUS">AUS</option>
+                                                <option value="DFW">DFW</option>
+                                                <option value="DEN">DEN</option>
+                                                <option value="LAX">LAX</option>
+                                                <option value="SAN">SAN</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label" for="arrival">Arrival Time</label>
+                                            <input class="form-control" type="datetime-local" name="arrival"
+                                                id="arrival">
+                                            <button class="btn btn-success mt-3 mb-5">Add</button>
+                                        </div>
+                                    </form>
+                                    <h2 class="text-center mb-5">Add Ticket</h2>
+                                    <a class="btn btn-success" href="/flights/<%= flight._id %>/tickets/new">Add New
+                                        Ticket</a>
     </div>
 
 
